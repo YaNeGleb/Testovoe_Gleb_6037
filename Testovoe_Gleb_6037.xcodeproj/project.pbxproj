@@ -17,9 +17,22 @@
 		51D016752E329F30000BD7A8 /* Testovoe_Gleb_6037.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testovoe_Gleb_6037.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		51153FF62E32A37F0002DCF5 /* Exceptions for "Testovoe_Gleb_6037" folder in "Testovoe_Gleb_6037" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Testovoe-Gleb-6037-Info.plist",
+			);
+			target = 51D016742E329F30000BD7A8 /* Testovoe_Gleb_6037 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		51D016772E329F30000BD7A8 /* Testovoe_Gleb_6037 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				51153FF62E32A37F0002DCF5 /* Exceptions for "Testovoe_Gleb_6037" folder in "Testovoe_Gleb_6037" target */,
+			);
 			path = Testovoe_Gleb_6037;
 			sourceTree = "<group>";
 		};
@@ -272,6 +285,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Testovoe-Gleb-6037-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -311,6 +325,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Testovoe-Gleb-6037-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
