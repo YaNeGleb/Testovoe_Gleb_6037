@@ -14,43 +14,50 @@ struct IntroScreenView: View {
     
     var body: some View {
         WithPerceptionTracking {
-            ZStack(alignment: .bottom) {
-                Image("intro_screen_image")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .ignoresSafeArea()
-                    .overlay(
-                        LinearGradient(
-                            gradient: Gradient(colors: [.clear, .black, .black]),
-                            startPoint: .center,
-                            endPoint: .bottom
+            NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
+                ZStack(alignment: .bottom) {
+                    Image("intro_screen_image")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .ignoresSafeArea()
+                        .overlay(
+                            LinearGradient(
+                                gradient: Gradient(colors: [.clear, .black, .black]),
+                                startPoint: .center,
+                                endPoint: .bottom
+                            )
                         )
-                    )
-                
-                VStack(alignment: .leading, spacing: 61) {
-                    Spacer()
-                    Text("Online Personal\nStyling.\nOutfits for\nEvery Woman.")
-                        .foregroundStyle(.white)
-                        .multilineTextAlignment(.leading)
-                        .font(.customFont(font: .kaiseiTokumin, style: .medium, size: 32))
                     
-                    Button {
-                        // TODO: Need add action
-                    } label: {
-                        Text("TAKE A QUIZ")
-                            .font(.customFont(font: .poppins, style: .regular, size: 14))
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 13.5)
-                            .foregroundColor(.primary)
-                            .background(.white)
+                    VStack(alignment: .leading, spacing: 61) {
+                        Spacer()
+                        Text("Online Personal\nStyling.\nOutfits for\nEvery Woman.")
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                            .font(.customFont(font: .kaiseiTokumin, style: .medium, size: 32))
+                        
+                        Button {
+                            store.send(.navigation(.goToNextQuiz))
+                        } label: {
+                            Text("TAKE A QUIZ")
+                                .font(.customFont(font: .poppins, style: .regular, size: 14))
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 13.5)
+                                .foregroundColor(.primary)
+                                .background(.white)
+                        }
+                        .padding(.bottom, 62)
                     }
-                    .padding(.bottom, 62)
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
-            }
-            .onAppear {
-                store.send(.onAppear)
+                .onAppear {
+                    store.send(.onAppear)
+                }
+            } destination: { store in
+                switch store.case {
+                case let .quizScreen(quizScreenStore):
+                    QuizView(store: quizScreenStore)
+                }
             }
         }
     }

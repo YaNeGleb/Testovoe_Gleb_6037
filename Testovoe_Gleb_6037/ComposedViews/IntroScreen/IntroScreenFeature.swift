@@ -11,17 +11,27 @@ import ComposableArchitecture
 
 @Reducer
 struct IntroScreenFeature {
+    @Reducer
+    enum Path {
+        case quizScreen(QuizFeature)
+    }
     
     @ObservableState
     struct State: Equatable {
+        var path = StackState<Path.State>()
         var quizItems: [QuizItem] = []
         var isLoading = false
     }
     
     enum Action: BindableAction {
         case binding(_ action: BindingAction<State>)
+        case navigation(Navigation)
+        case path(StackAction<Path.State, Path.Action>)
         case onAppear
         case dataFetching(DataFetching)
+        enum Navigation {
+            case goToNextQuiz
+        }
         enum DataFetching {
             case loadQuizData
             case quizDataLoaded([QuizItem])
@@ -64,10 +74,34 @@ struct IntroScreenFeature {
                     state.quizItems = quizItems
                     return .none
                 }
+                
+            case .navigation(let navigationAction):
+                switch navigationAction {
+                case .goToNextQuiz:
+                    let currentQuizIndex = state.path.ids.count
+                    guard currentQuizIndex < state.quizItems.count else {
+                        state.path.removeAll()
+                        return .none
+                    }
+                    let nextQuizData = state.quizItems[currentQuizIndex]
+                    let isFirstQuiz = currentQuizIndex == 0
+                    state.path.append(.quizScreen(QuizFeature.State(quizData: nextQuizData,
+                                                                    isFirstQuiz: isFirstQuiz)))
+                    return .none
+                }
+            case let .path(action):
+                switch action {
+                case .element(id: _, action: .quizScreen(.delegate(.continueButtonTapped))):
+                    return .send(.navigation(.goToNextQuiz))
+                default:
+                    return .none
+                }
             case .binding(_):
                 return .none
             }
         }
+        .forEach(\.path, action: \.path)
     }
 }
+extension IntroScreenFeature.Path.State: Equatable {}
 
