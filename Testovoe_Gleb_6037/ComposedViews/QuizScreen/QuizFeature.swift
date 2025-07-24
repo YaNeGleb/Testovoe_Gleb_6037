@@ -27,6 +27,7 @@ struct QuizFeature {
         }
     }
     
+    @Dependency(\.userDefaultsManager) var userDefaultsManager
     @Dependency(\.dismiss) var dismiss
     
     var body: some Reducer<State, Action> {
@@ -40,6 +41,7 @@ struct QuizFeature {
             case .delegate(let delegateAction):
                 switch delegateAction {
                 case .continueButtonTapped:
+                    userDefaultsManager.save(state.quizData, forKey: state.quizData.type)
                     return .none
                 }
             case .dismiss:
@@ -52,4 +54,3 @@ struct QuizFeature {
         }
     }
 }
-
