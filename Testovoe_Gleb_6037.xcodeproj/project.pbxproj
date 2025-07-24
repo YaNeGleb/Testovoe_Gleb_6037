@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		51D016892E329F89000BD7A8 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 51D016882E329F89000BD7A8 /* NukeUI */; };
+		51D0168C2E32A0C5000BD7A8 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 51D0168B2E32A0C5000BD7A8 /* FirebaseCore */; };
+		51D0168E2E32A0C5000BD7A8 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 51D0168D2E32A0C5000BD7A8 /* FirebaseRemoteConfig */; };
+		51D016912E32A11E000BD7A8 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 51D016902E32A11E000BD7A8 /* ComposableArchitecture */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		51D016752E329F30000BD7A8 /* Testovoe_Gleb_6037.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testovoe_Gleb_6037.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +30,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51D0168E2E32A0C5000BD7A8 /* FirebaseRemoteConfig in Frameworks */,
+				51D0168C2E32A0C5000BD7A8 /* FirebaseCore in Frameworks */,
+				51D016912E32A11E000BD7A8 /* ComposableArchitecture in Frameworks */,
+				51D016892E329F89000BD7A8 /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +76,10 @@
 			);
 			name = Testovoe_Gleb_6037;
 			packageProductDependencies = (
+				51D016882E329F89000BD7A8 /* NukeUI */,
+				51D0168B2E32A0C5000BD7A8 /* FirebaseCore */,
+				51D0168D2E32A0C5000BD7A8 /* FirebaseRemoteConfig */,
+				51D016902E32A11E000BD7A8 /* ComposableArchitecture */,
 			);
 			productName = Testovoe_Gleb_6037;
 			productReference = 51D016752E329F30000BD7A8 /* Testovoe_Gleb_6037.app */;
@@ -94,6 +109,11 @@
 			);
 			mainGroup = 51D0166C2E329F30000BD7A8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				51D016872E329F89000BD7A8 /* XCRemoteSwiftPackageReference "NukeUI" */,
+				51D0168A2E32A0C5000BD7A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				51D0168F2E32A11E000BD7A8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 51D016762E329F30000BD7A8 /* Products */;
 			projectDirPath = "";
@@ -339,6 +359,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		51D016872E329F89000BD7A8 /* XCRemoteSwiftPackageReference "NukeUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/NukeUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.3;
+			};
+		};
+		51D0168A2E32A0C5000BD7A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
+		51D0168F2E32A11E000BD7A8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.20.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		51D016882E329F89000BD7A8 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51D016872E329F89000BD7A8 /* XCRemoteSwiftPackageReference "NukeUI" */;
+			productName = NukeUI;
+		};
+		51D0168B2E32A0C5000BD7A8 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51D0168A2E32A0C5000BD7A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		51D0168D2E32A0C5000BD7A8 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51D0168A2E32A0C5000BD7A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		51D016902E32A11E000BD7A8 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51D0168F2E32A11E000BD7A8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 51D0166D2E329F30000BD7A8 /* Project object */;
 }
