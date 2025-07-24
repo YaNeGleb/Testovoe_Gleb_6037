@@ -16,7 +16,7 @@ struct IntroScreenView: View {
         WithPerceptionTracking {
             NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
                 ZStack(alignment: .bottom) {
-                    Image("intro_screen_image")
+                    Image("introScreenImage")
                         .resizable()
                         .scaledToFill()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
