@@ -57,6 +57,7 @@ struct IntroScreenFeature {
                     state.isLoading = true
                     return .run { send in
                         do {
+                            try? await remoteConfig.fetchAndActivate()
                             guard let jsonData = remoteConfig.fetchJSONData(for: .quizRemoteConfig) else {
                                 print("IntroScreenFeature | Failed loadQuizData | No data for key .quizRemoteConfig")
                                 await send(.dataFetching(.quizDataLoaded([])))

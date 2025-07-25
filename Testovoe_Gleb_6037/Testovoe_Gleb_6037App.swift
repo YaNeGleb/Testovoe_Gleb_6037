@@ -23,16 +23,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct Testovoe_Gleb_6037App: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @Dependency(\.remoteConfig) var remoteConfig
     private let store = Store(initialState: IntroScreenFeature.State()) {
         IntroScreenFeature()
     }
     var body: some Scene {
         WindowGroup {
             IntroScreenView(store: store)
-                .task {
-                    try? await remoteConfig.fetchAndActivate()
-                }
         }
     }
 }
